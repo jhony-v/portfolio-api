@@ -13,8 +13,8 @@ export default async function sendEmailController(req : Request, res : Response)
         await sendEmailService.send({ ...req.body, html });
         return res.json({sent:true});
     }
-    catch(e) {
-        return res.status(400).json({sent:false,message:"Email not sent: "+e.getMessage()});
+    catch(error) {
+        return res.status(400).json({sent:false,message:"Email not sent",error});
     }
 
 }
