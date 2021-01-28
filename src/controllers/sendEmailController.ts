@@ -14,7 +14,7 @@ export default async function sendEmailController(req : Request, res : Response)
         return res.json({sent:true});
     }
     catch(e) {
-        return res.status(400).json({sent:false,message:"Email not sent"});
+        return res.status(400).json({sent:false,message:"Email not sent: "+e.getMessage()});
     }
 
 }

@@ -5,11 +5,12 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Email message
     body
-      .email__title      
-          h1(style="margin-bottom:20px") {{subject}}
-      .email__from-user
+      .email(style="box-shadow:0 10px 20px rgba(40,40,40,.1);padding:10px")
+        .email__title(style="background-color:rgb(30,130,230);margin-bottom:30px;")      
+          h1(style="margin:0;color:white") {{subject}}
+        .email__from-user
           p.email__name(style="margin-bottom:20px;font-weight:bold;font-size:1.05rem") 
            | From: {{name}} 
            span(style="color:gray").email__account {{from}}
-      .email__message
+        .email__message
           p(style="color:gray;font-size:1rem") {{message}}
