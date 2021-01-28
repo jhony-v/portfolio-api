@@ -1,5 +1,5 @@
 export interface EmailProps {
-    from? : string;
+    email? : string;
     name? : string;
     subject : string;
     message : string;

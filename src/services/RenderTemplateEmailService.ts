@@ -13,11 +13,11 @@ export default class RenderTemplateEmailService {
     return this
   }
 
-  replace({ message, subject, name, from }: EmailProps) {
+  replace({ message, subject, name, email }: EmailProps) {
     return this.template
       .replace("{{subject}}", subject)
       .replace("{{message}}", message)
       .replace("{{name}}", name || "")
-      .replace("{{from}}", from || "")
+      .replace("{{from}}", email || "")
   }
 }

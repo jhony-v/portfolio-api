@@ -13,7 +13,7 @@ export default class SendEmailService implements SendEmailAdapter<SendEmailTempl
     }
 
     async send(emailProps : SendEmailTemplateProps) : Promise<any> {
-        const { from , subject, html } = emailProps;
+        const { email , subject, html } = emailProps;
         const transporter = nodemailer.createTransport({
             host : "smtp.gmail.com",
             secure : false,
@@ -23,7 +23,7 @@ export default class SendEmailService implements SendEmailAdapter<SendEmailTempl
             }
         });
         await transporter.sendMail({
-            from : from,
+            from : email,
             to : this.toEmail,
             subject : subject,
             html : html
