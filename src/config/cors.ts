@@ -2,6 +2,7 @@ import { CorsOptions } from "cors"
 
 export const CORS_ACCESS = [
   "https://jhony-24.github.io",
+  "https://jhonyvega.com",
   "http://localhost:8000",
 ]
 
