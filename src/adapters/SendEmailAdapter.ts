@@ -1,8 +1,8 @@
 export interface EmailProps {
-    email? : string;
-    name? : string;
+    email : string;
     subject : string;
     message : string;
+    name? : string;
 }
 
 export default interface SendEmailAdapter<T_Email_Props> {

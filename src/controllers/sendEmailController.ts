@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
 import RenderTemplateEmailService from "../services/RenderTemplateEmailService";
 import SendEmailService from "../services/SendEmailService";
-import { AUTHORIZATION_USER } from "../config/envs"
 
 export default async function sendEmailController(req : Request, res : Response) {
 
-    const sendEmailService = new SendEmailService(AUTHORIZATION_USER || "");
+    const sendEmailService = new SendEmailService();
     const renderTemplateService = new RenderTemplateEmailService();
 
     try {

@@ -1,33 +1,27 @@
 import SendEmailAdapter, { EmailProps } from "../adapters/SendEmailAdapter";
-import nodemailer from "nodemailer"
-import { AUTHORIZATION_USER, AUTHORIZATION_PASSWORD } from "../config/envs";
+import { AUTHORIZATION_USER, PORTFOLIO_API_KEY } from "../config/envs";
+import sendGrid from "@sendgrid/mail";
+
+sendGrid.setApiKey(PORTFOLIO_API_KEY);
 
 interface SendEmailTemplateProps extends EmailProps {
-    html : string;
+  html: string;
 }
 
 export default class SendEmailService implements SendEmailAdapter<SendEmailTemplateProps> {
-    private toEmail : string;
-    constructor(toEmail : string) {
-        this.toEmail = toEmail; 
-    }
 
-    async send(emailProps : SendEmailTemplateProps) : Promise<any> {
-        const { email , subject, html } = emailProps;
-        const transporter = nodemailer.createTransport({
-            host : "smtp.gmail.com",
-            secure : false,
-            auth : {
-                user : AUTHORIZATION_USER,
-                pass : AUTHORIZATION_PASSWORD
-            }
-        });
-        await transporter.sendMail({
-            from : email,
-            to : this.toEmail,
-            subject : subject,
-            html : html
-        });
-        return true;
+  async send(emailProps: SendEmailTemplateProps): Promise<any> {
+    const { email, subject, html } = emailProps;
+    try {
+      await sendGrid.send({
+        to: AUTHORIZATION_USER,
+        from: email,
+        subject,
+        html,
+      });
+      return true;
+    } catch (error) {
+      throw new Error(error);
     }
+  }
 }
