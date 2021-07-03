@@ -10,7 +10,7 @@ interface SendEmailTemplateProps extends EmailProps {
 
 export default class SendEmailService implements SendEmailAdapter<SendEmailTemplateProps> {
 
-  async send(emailProps: SendEmailTemplateProps): Promise<any> {
+  async send(emailProps: SendEmailTemplateProps): Promise<boolean> {
     const { email, subject, html } = emailProps;
     try {
       await sendGrid.send({

@@ -2,3 +2,4 @@
 .env
 src/config/envs
 dist
+package-lock.json

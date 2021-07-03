@@ -6,5 +6,5 @@ export interface EmailProps {
 }
 
 export default interface SendEmailAdapter<T_Email_Props> {
-    send : (data : T_Email_Props) => Promise<any>
+    send : (data : T_Email_Props) => Promise<boolean>
 }
