@@ -1,2 +1,2 @@
 # PORTFOLIO - API
-Personal API about me **"jhony vega"** to use in the portfolio repository.
+Personal API about me to use in the portfolio repository.
