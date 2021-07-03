@@ -17,7 +17,8 @@ export default class SendEmailService implements SendEmailAdapter<SendEmailTempl
         to: AUTHORIZATION_USER,
         from: email,
         subject,
-        html,
+        html: html,
+        text: html,
       });
       return true;
     } catch (error) {
